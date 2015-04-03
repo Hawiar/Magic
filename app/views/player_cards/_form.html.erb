@@ -1,0 +1,25 @@
+<%= form_for(@player_card) do |f| %>
+  <% if @player_card.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@player_card.errors.count, "error") %> prohibited this player_card from being saved:</h2>
+
+      <ul>
+      <% @player_card.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :player_id %><br>
+    <%= f.select :player_id, options_from_collection_for_select(Player.all, :id, :last_name) %>
+  </div>
+  <div class="field">
+    <%= f.label :card_id %><br>
+    <%= f.select :card_id, options_from_collection_for_select(Card.all, :id, :name) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

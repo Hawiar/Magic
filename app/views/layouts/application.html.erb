@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Magic</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+ <%= link_to "Players", players_path %>
+ <%= link_to "Cards", cards_path %>
+ <%= link_to "Match", player_cards_path %>
+<%= yield %>
+
+</body>
+</html>
