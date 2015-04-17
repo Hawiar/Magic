@@ -1,7 +1,7 @@
 //True = alive, False = dead.
 //generation -  counts the generation we are in.
-//liveCells - counts how many cells surrounding a cell
-//    are alive. We don't care how many surrounding cells are dead.
+//liveCells  -  counts how many cells surrounding a cell
+//              are alive. We don't care how many surrounding cells are dead.
 var generation;
 var liveCells;
 var rows;
@@ -16,32 +16,24 @@ function traverse()
     for(var j = 0; j < columns; j++) 
     {
       liveCells = 0;
-        //Checks for corners, only 3 cells need to be verified as 
-        //alive or dead.
-        if((i == 0 && j == 0) || (i == 0 && j == columns-1) ||
-        (i == rows-1 && j == 0) || (i == rows-1 && j == columns-1))
-	{
-        
-        }
-	//Checks perimeter objects, only 6 cells need to be verified as 	//alive or dead.
-        else if(i == 0 || j == 0 || i = rows-1 || j == columns-1)
-	{
-	
-	}
-	//Checks all 9 surrounding cells
-	else 
-	{
+	//Checks all of the surrounding cells
           for(var x = i-1; x <= i+1; x++)
           {
 	    for(var y = j-1; y <= j+1; y++)
 	    {
-	      if(currGrid[x][y] == true)
-	      {
-                liveCells++;
+              //This if checks that we aren't checking non-existant
+              //cells that are out of bounds. 
+              if(x >= 0 && y >= 0 && x < rows && y < columns)
+              {
+                //2nd && checks that we aren't counting the current cell
+                //we are in as a neighboring cell.
+	        if(currGrid[x][y] == true && (x != i && y != J) )
+	        {
+                  liveCells++;
+                }
               }
 	    }
-	  }
-	}   
+	  } 
         
 	if(currGrid[i][j] == true)
 	{
@@ -66,7 +58,7 @@ function traverse()
             nextGrid[i][j] = false;
           }
         }
-      }
+      
     }
   }
 }
@@ -74,5 +66,5 @@ function traverse()
 function nextGen()
 {
  currGrid = nextGrid;
- generations++;
+ generation++;
 }
