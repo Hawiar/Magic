@@ -1,0 +1,34 @@
+%p#notice= notice
+
+%h1 Listing Players
+
+= will_paginate @players
+%table.table
+  %thead
+    %tr
+      %th First name
+      %th Last name
+      %th Email
+      %th Phone number
+      %th{:colspan => "3"}
+  %tbody
+    - @players.each do |player|
+      %tr
+        %td= player.first_name
+        %td= player.last_name
+        %td= player.email
+        %td= player.phone_number
+        %td
+          .btn-group{"aria-label" => "...", :role => "group"}
+            %button.btn.btn-default{:type => "button"}
+              = link_to 'Show', player
+        %td
+          .btn-group{"aria-label" => "...", :role => "group"}
+            %button.btn.btn-default{:type => "button"}
+              = link_to 'Edit', edit_player_path(player)
+        %td
+          .btn-group{"aria-label" => "...", :role => "group"}
+            %button.btn.btn-default{:type => "button"}
+              = link_to 'Destroy', player, method: :delete,data: {confirm: 'Are you sure?' }
+%br
+= link_to 'New Player', new_player_path

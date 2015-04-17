@@ -10,9 +10,15 @@ group :development do
  gem 'sqlite3'
 end
 
+gem 'haml'
+
+gem 'bootstrap-glyphicons', '~> 0.0.1'
+# Glyphicons
 gem 'will_paginate'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
+# Use haml for markup
+gem 'haml-rails'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
