@@ -1,7 +1,9 @@
 //True = alive, False = dead.
-//generation counts generations.
+//generation -  counts the generation we are in.
+//liveCells - counts how many cells surrounding a cell
+//    are alive. We don't care how many surrounding cells are dead.
 var generation;
-var liveCount;
+var liveCells;
 var rows;
 var columns;
 var currGrid[rows][columns];
@@ -13,7 +15,7 @@ function traverse()
   {
     for(var j = 0; j < columns; j++) 
     {
-      var liveCells = 0;
+      liveCells = 0;
         //Checks for corners, only 3 cells need to be verified as 
         //alive or dead.
         if((i == 0 && j == 0) || (i == 0 && j == columns-1) ||
