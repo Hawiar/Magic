@@ -97,6 +97,13 @@ function nextGen()
 
 function tick()
 {
+ htmlify();
+ traverse();
+ nextGen();
+}
+
+function tickToDeath()
+{
   do
     htmlify();
   while(currGrid != deadSociety)
@@ -106,4 +113,4 @@ function tick()
   } 
 }
 
-setInterval(tick(), 2000);
+setInterval(tick, 2000);
