@@ -20,13 +20,13 @@ function animate()
 
 function htmlify()
 {
- var i = 1;
+ var k = 1;
  var ele;
  for(var i = 0; i < rows; i++)
  {
    for(var j = 0; j < columns; j++)
    {
-     ele = document.getElementById("cell"+i);
+     ele = document.getElementById("Cell"+k);
      if(currGrid[i][j] == true)
      {
        ele.innerHTML = "X";
@@ -35,7 +35,7 @@ function htmlify()
      {
        ele.innerHTML = ".";
      }
-     i++;
+     k++;
    }
  }
 }
