@@ -18,6 +18,28 @@ function animate()
   }
 }
 
+function htmlify()
+{
+ var i = 1;
+ var ele;
+ for(var i = 0; i < rows; i++)
+ {
+   for(var j = 0; j < columns; j++)
+   {
+     ele = document.getElementById("cell"+i);
+     if(currGrid[i][j] == true)
+     {
+       ele.innerHTML = "X";
+     }
+     else 
+     {
+       ele.innerHTML = ".";
+     }
+     i++;
+   }
+ }
+}
+
 function traverse() 
 {
   for(var i = 0; i < rows; i++) 
