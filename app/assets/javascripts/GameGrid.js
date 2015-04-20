@@ -4,19 +4,11 @@
 //              are alive. We don't care how many surrounding cells are dead.
 var generation = 0;
 var liveCells;
-var rows = 3;
-var columns = 3;
-var currGrid =[[true, false, false], [false, true, false], [false, false, true]];
-var nextGrid = [[false, false, false], [false, false, false], [false, false, false]];
-
-function animate()
-{
-  while(currGrid != nextGrid)
-  {
-    traverse();
-    nextGen();
-  }
-}
+var rows = 4;
+var columns = 4;
+var currGrid =[[true, false, false, false], [false, true, false, false], [false, false, true, false], [false, false, false, true]];
+var nextGrid = [[false, false, false, false], [false, false, false, false], [false, false, false, false], [false, false, false, false]];
+var deadSociety = [[false, false, false, false], [false, false, false, false], [false, false, false, false], [false, false, false, false]];
 
 function htmlify()
 {
@@ -26,7 +18,8 @@ function htmlify()
  {
    for(var j = 0; j < columns; j++)
    {
-     ele = document.getElementById("Cell"+k);
+     ele = document.getElementById("cell"+k);
+     console.log("Cell", k, ele);
      if(currGrid[i][j] == true)
      {
        ele.innerHTML = "X";
@@ -96,6 +89,21 @@ function traverse()
 
 function nextGen()
 {
+ var gen = document.getElementById("generations");
  currGrid = nextGrid;
  generation++;
+ gen.innerHTML = generation;
 }
+
+function tick()
+{
+  do
+    htmlify();
+  while(currGrid != deadSociety)
+  {
+    traverse();
+    nextGen();
+  } 
+}
+
+setInterval(tick, 2000);
