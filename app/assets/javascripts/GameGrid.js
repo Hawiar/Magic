@@ -4,10 +4,10 @@
 //              are alive. We don't care how many surrounding cells are dead.
 var generation = 0;
 var liveCells;
-var rows = 4;
-var columns = 4;
-var currGrid =[[true, false, false, false], [false, true, false, false], [false, false, true, false], [false, false, false, true]];
-var nextGrid = [[false, false, false, false], [false, false, false, false], [false, false, false, false], [false, false, false, false]];
+var rows = 5;
+var columns = 5;
+var currGrid =[[true, false, false, true, false], [false, true, false, false, false], [true, true, false, true, false], [false, true, false, true, false], [true, false, false, false, true]];
+var nextGrid = [[false, false, false, false, false], [false, false, false, false, false], [false, false, false, false, false], [false, false, false, false, false], [false, false, false, false, false]];
 var deadSociety = [[false, false, false, false], [false, false, false, false], [false, false, false, false], [false, false, false, false]];
 
 function htmlify()
@@ -26,7 +26,7 @@ function htmlify()
      }
      else 
      {
-       ele.innerHTML = ".";
+       ele.innerHTML = "." 
      }
      k++;
    }
@@ -113,4 +113,4 @@ function tickToDeath()
   } 
 }
 
-setInterval(tick, 2000);
+setInterval(tick, 1000);
