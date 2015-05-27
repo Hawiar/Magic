@@ -18,6 +18,8 @@ source 'https://rails-assets.org' do
 end
 
 gem 'rspec'
+gem 'rspec-rails'
+gem 'shoulda'
 gem 'haml'
 gem 'bootstrap-glyphicons', '~> 0.0.1'
 # Glyphicons
