@@ -1,0 +1,26 @@
+= form_for(@player) do |f|
+  - if @player.errors.any?
+    #error_explanation
+      %h2
+        =pluralize(@player.errors.count, "error")
+        prohibited this from being saved:
+      %ul
+        - @player.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :first_name
+    %br/
+    = f.text_field :first_name
+  .field
+    = f.label :last_name
+    %br/
+    = f.text_field :last_name
+  .input-group
+  %input.form-control("aria-describedby" => "basic-addon2", :placeholder  => "Email", :type => "text"}/
+    %span#basic-addon2.input-group-addon @example.com
+  .field
+    = f.label :phone_number
+    %br/
+    = f.text_field :phone_number
+  .actions
+    = f.submit

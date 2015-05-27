@@ -1,0 +1,35 @@
+%p#notice= notice
+%h1 Magic Cards
+= will_paginate @cards
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th
+        .dropdown
+          %button#dropdownMenu1.btn.btn-default.dropdown-toggle{"aria-expanded" => "true", "data-toggle" => "dropdown", :type => "button"}
+            Dropdown
+            %span.caret
+          %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1", :role => "menu"}
+            %li{:role => "presentation"}
+              %a{:href => "#", :role => "menuitem", :tabindex => "-1"} A to Z
+            %li{:role => "presentation"}
+              %a{:href => "#", :role => "menuitem", :tabindex => "-1"} Z to A
+            %li{:role => "presentation"}
+              %a{:href => "#", :role => "menuitem", :tabindex => "-1"} Other sorting
+      %th{:colspan => "3"}
+  %tbody
+    - @cards.each do |card|
+      %tr
+        %td= card.name
+        %td
+          .btn-group{"aria-label" => "...", :role => "group"}
+            %button.btn.btn-info{:type => "button"}
+              = link_to 'Show', card
+            %button.btn.btn-default{:type => "button"}
+              = link_to 'Edit', edit_card_path(card)
+            %button.btn.btn-default{:type => "button"}
+              %span.glyphicon.glyphicon-trash{"aria-hidden" => "true"}
+              = link_to '', card, method: :delete, data: { confirm: 'Are you sure?' }
+  %br/
+  = link_to 'Add New Card', new_card_path

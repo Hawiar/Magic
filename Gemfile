@@ -10,8 +10,15 @@ group :development do
  gem 'sqlite3'
 end
 
-gem 'haml'
+gem 'bundler', '>= 1.8.4'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-bootstrap'
+  gem 'rails-assets-angular'
+  gem 'rails-assets-leaflet'
+end
 
+gem 'rspec'
+gem 'haml'
 gem 'bootstrap-glyphicons', '~> 0.0.1'
 # Glyphicons
 gem 'will_paginate'
