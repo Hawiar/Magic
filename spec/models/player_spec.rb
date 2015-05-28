@@ -8,14 +8,12 @@ describe 'Player' do
   describe "Validation:" do
     it "is invalid without a first name" do
       player = Player.new(first_name: nil)
-      player.valid?
-      expect(player.errors[:first_name]).to include("can't be blank")
+      expect(player.valid?).to be false
     end
   
     it "is invalid without a last name" do
       player = Player.new(last_name: nil)
-      player.valid?
-      expect(player.errors[:last_name]).to include("can't be blank")
+      expect(player.valid?).to be false
     end
   end
 end
