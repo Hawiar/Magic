@@ -10,6 +10,7 @@
       %th Last name
       %th Email
       %th Phone number
+      %th City
       %th
   .dropdown
     %button#dropdownMenu1.btn.btn-default.dropdown-toggle{"aria-expanded" => "true", "data-toggle" => "dropdown", :type => "button"}
@@ -30,6 +31,7 @@
         %td= player.last_name
         %td= player.email
         %td= player.phone_number
+        %td= player.city
 
         %td
           .btn-group{"aria-label" => "...", :role => "group"}

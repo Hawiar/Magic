@@ -12,9 +12,12 @@
   %strong Phone number:
   = @player.phone_number
 %p
+  %strong City:
+  = @player.city
+%p
   %strong Cards:
   - @player.cards.each do |card|
     = link_to card.name, card
 
 = link_to 'Edit', edit_player_path(@player)
-= link_to 'Back,players_path
+= link_to 'Back',players_path

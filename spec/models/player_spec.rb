@@ -1,9 +1,9 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe 'Player' do
 
   it { should have_many :player_cards }
-  it { should have_many :cards.through(:players_cards) }
+  it { should have_many (:cards).through(:players_cards) }
 
   describe "Validation:" do
     it "is invalid without a first name" do

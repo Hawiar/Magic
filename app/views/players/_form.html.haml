@@ -15,12 +15,17 @@
     = f.label :last_name
     %br/
     = f.text_field :last_name
-  .input-group
-  %input.form-control("aria-describedby" => "basic-addon2", :placeholder  => "Email", :type => "text"}/
-    %span#basic-addon2.input-group-addon @example.com
+  .field
+    = f.label :email
+    %br/
+    = f.text_field :email
   .field
     = f.label :phone_number
     %br/
     = f.text_field :phone_number
+  .field
+    = f.label :city
+    %br/
+    = f.text_field :city
   .actions
     = f.submit

@@ -6,6 +6,9 @@ group :production do
 end
 
 group :development do
+ gem 'rspec-rails'
+ gem 'shoulda'
+ gem 'shoulda-matchers'
 # Use sqlite3 as the database for Active Record
  gem 'sqlite3'
 end
@@ -18,8 +21,6 @@ source 'https://rails-assets.org' do
 end
 
 gem 'rspec'
-gem 'rspec-rails'
-gem 'shoulda'
 gem 'haml'
 gem 'bootstrap-glyphicons', '~> 0.0.1'
 # Glyphicons
